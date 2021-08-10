@@ -1,0 +1,16 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1> Add a New Page</h1>
+    <h2>Submit this form and fill out the required fields to create a new entry in this wiki.</h2>
+
+    <form action = "{% url 'newPage' %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type = "submit" value = "Create New Page">
+    </form>
+{% endblock %}

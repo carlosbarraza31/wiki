@@ -1,0 +1,15 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Page Editor
+{% endblock %}
+
+{% block body %}
+<h1> Welcome to the Edit Page.</h1>
+<h2>Here you can make changes to the "{{title}}" entry. </h2>
+    <form action = "{% url 'editPage' title %}" method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type = "submit" value = "Save Changes">
+    </form>
+{% endblock %}
